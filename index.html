@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WL Visualizer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Weisfeiler–Leman Visualizer</h1>
+</header>
+<main>
+  <section class="panel">
+    <label for="mode" style="margin-top:0">Algorithm</label>
+    <select id="mode" style="width:100%">
+      <option value="all">All three side by side</option>
+      <option value="wl1">1-WL (color refinement)</option>
+      <option value="wl2">2-WL (ordinary)</option>
+      <option value="fwl2">2-FWL (folklore)</option>
+    </select>
+
+    <label for="matA" id="labA">Adjacency matrix</label>
+    <textarea id="matA"></textarea>
+
+    <div class="row"><label style="margin:0;color:var(--text)"><input type="checkbox" id="cmp"> Compare with a second graph</label></div>
+    <div id="bBox">
+      <label for="matB">Graph B: adjacency matrix</label>
+      <textarea id="matB"></textarea>
+    </div>
+
+    <div class="row">
+      <button id="surprise">🎲 Surprise me</button>
+      <button class="primary" id="load">Load / restart</button>
+    </div>
+    <div class="hint">Surprise me loads a random graph with 5–9 vertices. When comparing, graph B is a random rewiring of A with the same degree sequence.</div>
+    <div class="err" id="err"></div>
+  </section>
+
+  <section class="panel">
+    <div class="row" style="margin-top:0">
+      <button id="prev" disabled>◀ Prev</button>
+      <button id="next" disabled>Next ▶</button>
+      <button id="run" disabled>Run all to stable</button>
+      <button id="reset" disabled>Reset all</button>
+      <span id="iter" style="font-size:14px"></span>
+    </div>
+    <div id="runs"></div>
+  </section>
+</main>
+
+<script src="js/algorithms/common.js"></script>
+<script src="js/algorithms/wl1.js"></script>
+<script src="js/algorithms/wl2.js"></script>
+<script src="js/algorithms/fwl2.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
